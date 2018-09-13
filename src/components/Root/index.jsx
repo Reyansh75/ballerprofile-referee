@@ -10,39 +10,39 @@ import actions from '../../actions';
 import { POLLING_INTERVAL_MS, NOTIFICATION_TIMEOUT_MS } from '../../constants';
 
 class Root extends React.Component {
-  componentDidMount() {
-    const { healthCheck } = this.props;
+  // componentDidMount() {
+  //   const { healthCheck } = this.props;
 
-    healthCheck();
-    setInterval(healthCheck, POLLING_INTERVAL_MS);
-  }
+  //   healthCheck();
+  //   setInterval(healthCheck, POLLING_INTERVAL_MS);
+  // }
 
-  componentWillReceiveProps(newProps) {
-    if (!newProps.isConnected) {
-      notification.error({
-        message: 'Connection lost',
-        description: 'Retrying to connect. Please stand still.',
-        placement: 'bottomRight',
-        bottom: 50,
-        duration: (NOTIFICATION_TIMEOUT_MS / 1000),
-      });
-    } else if (newProps.isConnected) {
-      notification.info({
-        message: 'Connection restored',
-        description: 'You can continue working.',
-        placement: 'bottomRight',
-        bottom: 50,
-        duration: (NOTIFICATION_TIMEOUT_MS / 1000),
-      });
-    }
-  }
+  // componentWillReceiveProps(newProps) {
+  //   if (!newProps.isConnected) {
+  //     notification.error({
+  //       message: 'Connection lost',
+  //       description: 'Retrying to connect. Please stand still.',
+  //       placement: 'bottomRight',
+  //       bottom: 50,
+  //       duration: (NOTIFICATION_TIMEOUT_MS / 1000),
+  //     });
+  //   } else if (newProps.isConnected) {
+  //     notification.info({
+  //       message: 'Connection restored',
+  //       description: 'You can continue working.',
+  //       placement: 'bottomRight',
+  //       bottom: 50,
+  //       duration: (NOTIFICATION_TIMEOUT_MS / 1000),
+  //     });
+  //   }
+  // }
 
   render() {
     const { children } = this.props;
 
     return (
       <React.Fragment>
-        <div>
+        <div className="container-fluid h-100">
           {children}
         </div>
       </React.Fragment>

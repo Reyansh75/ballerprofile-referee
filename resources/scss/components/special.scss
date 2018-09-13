@@ -1,0 +1,27 @@
+.sn-special {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px !important;
+
+    &.linkedin {
+        color: #335899;
+        background-color: white;
+        border-radius: 30px;
+        border-color: #335899;
+        font-family: 'Calibri-Italic';
+        border-style: solid;
+    }
+
+    &.twitter {
+        color: #2273c1;
+        background-color: white;
+        border-radius: 30px;
+        border-color: #2273c1;
+        font-family: 'Calibri-Italic';
+        border-style: solid;
+    }
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row, Col, Card, Form as AntForm, Button } from 'antd';
 import { connect } from 'react-redux';
 
 import selectors from './selectors';
@@ -25,25 +24,28 @@ class Login extends Form {
 
   render() {
     return (
-      <Row>
-        <Col span={6} offset={9}>
-          <Card title="Login">
-            <AntForm>
-              <AntForm.Item>
-                <Input {...this.getFieldProps('email')} placeholder="Email" type="email" />
-              </AntForm.Item>
-              <AntForm.Item>
-                <Input {...this.getFieldProps('password')} placeholder="Password" type="password" />
-              </AntForm.Item>
-              <AntForm.Item>
-                <Button type="primary">
-                  Log in
-                </Button>
-              </AntForm.Item>
-            </AntForm>
-          </Card>
-        </Col>
-      </Row>
+      <div className="container h-100">
+        <div className="d-flex flex-column h-100">
+            <div className="col d-flex flex-column justify-content-center align-items-center">
+              <img src="/img/logo.png" height="70" width="70" />
+              <strong className="mt-4">Referee App</strong>
+            </div>
+            <div className="col d-flex flex-column justify-content-center align-items-center">
+              <Input {...this.getFieldProps('email')} label="Email address" className="sn-font-italic" />
+              <Input {...this.getFieldProps('password')} label="Password" className="mt-3 sn-font-italic" type="password" />
+            </div>
+            <div className="col d-flex flex-column justify-content-center align-items-center">
+              <button className="sn-special linkedin w-100">
+                <span>Continue with LinkedIn</span>
+                <img src="/img/linkedin.png" height="30" width="30" />
+              </button>
+              <button className="sn-special twitter w-100 mt-3">
+                <span>Continue with Twitter</span>
+                <img src="/img/twitter.png" height="30" width="30" />
+              </button>
+            </div>
+        </div>
+      </div>
     );
   }
 }

@@ -1,0 +1,17 @@
+.sn-input {
+  border-style: none;
+  border-bottom-style: solid;
+  border-color: #000;
+  padding: 10;
+  border-radius: 0;
+  outline: none;
+  color: #000 !important;
+}
+
+.sn-input::placeholder {
+  color: #000;
+}
+
+.sn-input:focus {
+  border-color: #000;
+}

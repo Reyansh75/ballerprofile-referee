@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Input as AntInput } from 'antd';
+import cn from 'classnames';
 
-const Input = ({ disabled, id, placeholder, type, value, onChange, onBlur, isSubmitting, isValidating, isLoading }) => (
-  <AntInput
+const Input = ({ disabled, id, label, type, value, onChange, onBlur, isSubmitting, isValidating, isLoading, className }) => (
+  <input
+    className={cn("form-control sn-input", className)}
     disabled={disabled || isLoading || isValidating || isSubmitting}
     id={id}
-    placeholder={placeholder}
+    placeholder={label}
     type={type}
     onChange={({ target }) => onChange(target.value, id)}
     onBlur={({ target }) => onBlur(target.value, id)}
@@ -28,7 +29,7 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   onBlur: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   type: PropTypes.string,
   value: PropTypes.string,
   isValidating: PropTypes.bool,
