@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
 
-const Input = ({ disabled, id, label, type, value, onChange, onBlur, isSubmitting, isValidating, isLoading, className }) => (
+const Input = ({ normalize, disabled, id, label, type, value, onChange, onBlur, isSubmitting, isValidating, isLoading, className }) => (
   <input
-    className={cn("form-control sn-input", className)}
+  className={cn("form-control sn-input", className)}
     disabled={disabled || isLoading || isValidating || isSubmitting}
     id={id}
     placeholder={label}
     type={type}
     onChange={({ target }) => onChange(target.value, id)}
     onBlur={({ target }) => onBlur(target.value, id)}
-    value={value}
+    value={normalize(value)}
   />
 );
 
@@ -22,6 +22,7 @@ Input.defaultProps = {
   isSubmitting: false,
   isLoading: false,
   isValidating: false,
+  normalize: value => value || '',
 };
 
 Input.propTypes = {
@@ -35,6 +36,7 @@ Input.propTypes = {
   isValidating: PropTypes.bool,
   isSubmitting: PropTypes.bool,
   isLoading: PropTypes.bool,
+  normalize: PropTypes.func,
 };
 
 export default Input;

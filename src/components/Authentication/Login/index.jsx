@@ -1,6 +1,8 @@
 import React from 'react';
+import cn from 'classnames';
 import { connect } from 'react-redux';
 
+import validations from './validations';
 import selectors from './selectors';
 
 import actions from '../../../actions';
@@ -18,11 +20,26 @@ class Login extends Form {
       validating: {},
     };
 
-    this.validating = {};
+    this.validations = validations;
     this.formId = forms.LOGIN;
   }
 
+  handleLogin = (ev) => {
+    this.handleSubmit(ev)
+      .then((canSubmit) => {
+        if(canSubmit) {
+          const { values, login } = this.props;
+
+          login(values)
+        }
+
+        return canSubmit;
+      })
+  }
+
   render() {
+    const { values} = this.props;
+
     return (
       <div className="container h-100">
         <div className="d-flex flex-column h-100">
@@ -35,6 +52,9 @@ class Login extends Form {
               <Input {...this.getFieldProps('password')} label="Password" className="mt-3 sn-font-italic" type="password" />
             </div>
             <div className="col d-flex flex-column justify-content-center align-items-center">
+              <button onClick={this.handleLogin} className={cn("sn-login button w-100 mb-5", { 'sn-fill-blue': values.email && values.password })}>
+                <span>Sign in</span>
+              </button>
               <button className="sn-special linkedin w-100">
                 <span>Continue with LinkedIn</span>
                 <img src="/img/linkedin.png" height="30" width="30" />
@@ -54,5 +74,6 @@ export default connect(
   selectors,
   {
     ...actions.forms,
+    ...actions.authentication,
   },
 )(Login);

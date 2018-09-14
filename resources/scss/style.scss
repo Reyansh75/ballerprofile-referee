@@ -4,6 +4,10 @@
 @import "helpers";
 @import "components/input";
 @import "components/special";
+@import "components/login";
+@import "components/navigation.scss";
+@import "components/common.scss";
+@import "components/footer";
 
 @font-face {
     font-family: 'Calibri';
@@ -35,7 +39,7 @@ a {
 html, body {
     height: 100%;
     font-family: 'Calibri';
-    font-size: 20px;
+    font-size: 16px;
 }
 
 * {

@@ -1,0 +1,29 @@
+.sn-image-form-box {
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+  padding: 30px;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 50px;
+    color: #000;
+  }
+
+  p {
+    font-size: 16px;
+    color: gray;
+    font-family: Calibri-Italic;
+  }
+}
+
+.sn-subtitle {
+  color: #000;
+  font-family: Calibri-Italic;
+  font-size: 16px;
+}

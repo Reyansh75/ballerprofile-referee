@@ -1,5 +1,5 @@
 const domain = process.env.DOMAIN || 'ballerprofile.herokuapp.com';
-const protocol = process.env.PROTOCOL || 'http://';
+const protocol = process.env.PROTOCOL || 'https://';
 const port = process.env.PORT;
 
 module.exports.port = port;

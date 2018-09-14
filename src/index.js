@@ -8,7 +8,7 @@ import { Router, Switch, Route } from 'react-router';
 
 import '../resources/scss/style.scss';
 
-import { Authentication, Root } from './components';
+import { Authentication, Root, Profiles } from './components';
 
 import { middleware, reducers } from './store';
 
@@ -25,6 +25,7 @@ window.onload = () => {
             <Root>
               <Switch>
                 <Route exact path={paths.client.LOGIN} component={Authentication.Login} />
+                <Route exact path={paths.client.PROFILES} component={Profiles.Form} />
               </Switch>
             </Root>
           )}
